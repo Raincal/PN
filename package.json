@@ -1,0 +1,28 @@
+{
+    "name": "Piaoniu",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "test": "node node_modules/eslint/bin/eslint .",
+        "start": "react-native start",
+        "clean:babelrc": "find ./node_modules -name react-packager -prune -o -name '.babelrc' -print | xargs rm -f",
+        "postinstall": "npm run clean:babelrc"
+    },
+    "dependencies": {
+        "react": "^0.14.3",
+        "react-native": "^0.21.0",
+        "react-native-swiper": "^1.4.3",
+        "react-redux": "^4.0.2",
+        "redux": "^3.0.5",
+        "redux-actions": "^0.9.0",
+        "redux-thunk": "^1.0.2"
+    },
+    "devDependencies": {
+        "babel-eslint": "^5.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-airbnb": "^6.0.2",
+        "eslint-plugin-import": "^1.0.3",
+        "eslint-plugin-react": "^4.1.0",
+        "redux-logger": "^2.6.1"
+    }
+}
