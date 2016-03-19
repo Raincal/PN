@@ -45,6 +45,7 @@ class Sell extends Component {
     }
     _renderRow(rowData) {
         var statusColor;
+        const city = [, '上海', '北京'];
         switch (rowData.status) {
             case 1:
                 statusColor = '#4899fe'
@@ -63,7 +64,7 @@ class Sell extends Component {
                         source={{ uri: rowData.poster }}
                         />
                     <View style={[styles.flex, styles.ml10, { height: 110 }]}>
-                        <Text style={styles.name}>{rowData.name}</Text>
+                        <Text style={styles.name}>{`[${city[rowData.cityId]}]${rowData.name}`}</Text>
                         <Text style={[styles.fs10, styles.venueName]}>{rowData.venueName}</Text>
                         {rowData.lowPrice ? <View style={[styles.flex, styles.bottomWrap]}>
                             <View style={[styles.statusWrap, { borderColor: statusColor }]}>
