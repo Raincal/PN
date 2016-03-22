@@ -18,4 +18,4 @@ class Root extends React.Component {
     }
 }
 
-AppRegistry.registerComponent('MyProject', () => Root);
+AppRegistry.registerComponent('Piaoniu', () => Root);
