@@ -16,8 +16,7 @@ import Nav from '../components/Nav';
 import Modal from '../components/Modal'
 
 const status = ["售票中", "", "", "预售中"]
-var canLoadMore,
-    page = 1;
+var page = 1;
 
 class Sell extends Component {
     constructor(props) {
@@ -26,7 +25,6 @@ class Sell extends Component {
             dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 }),
             refreshing: false
         }
-        canLoadMore = false;
     }
     componentWillReceiveProps(nextProps) {
         const {activitiesList} = nextProps.activities;
@@ -85,10 +83,11 @@ class Sell extends Component {
     }
     _refresh() {
         this.setState({ refreshing: true })
-        const { fetchActivities, refreshActivities } = this.props;
+        const { fetchActivities, refreshActivities, loadMore} = this.props;
         setTimeout(() => {
             refreshActivities();
             page = 0;
+            loadMore();
             this.setState({
                 refreshing: false
             });
@@ -97,20 +96,23 @@ class Sell extends Component {
 
     }
     _onScroll() {
+        const {canLoadMore} = this.props.activities;
+        const {loadMore} = this.props;
         if (!canLoadMore) {
-            canLoadMore = true;
+            loadMore()
         };
     }
     _onEndReached() {
+        const {canLoadMore} = this.props.activities;
+        const {loadMore} = this.props;
         if (canLoadMore) {
             page++;
             const { fetchActivities } = this.props;
             const {currentCategory, currentSort, currentTime} = this.props.activities;
             fetchActivities(page, currentCategory, currentSort, currentTime);
-            canLoadMore = false;
-            this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(this.props.activities.activitiesList),
-            });
+            loadMore();
+        } else {
+            page = 1
         }
     }
     render() {

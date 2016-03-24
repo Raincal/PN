@@ -7,12 +7,14 @@ export const MODAL_SHOW = 'app/sell/modal';
 export const CHANGE_CATEGORY = 'app/sell/category';
 export const CHANGE_SORT = 'app/sell/sort';
 export const CHANGE_TIME = 'app/sell/time';
+export const LOAD_MORE = 'app/sell/load_more';
 
 // Initial state
 const initialState = {
     activitiesList: [],
     totalPage: 1,
     modalShow: false,
+    canLoadMore: false,
     selected: '',
     currentCategory: 0,
     currentSort: 1,
@@ -30,7 +32,8 @@ const reducer = handleActions({
     [REFRESH_ACTIVITIES]: (state, action) => {
         return Object.assign({}, state, {
             activitiesList: [],
-            modalShow: false
+            modalShow: false,
+            canLoadMore: false
         })
     },
     [MODAL_SHOW]: (state, action) => {
@@ -52,6 +55,11 @@ const reducer = handleActions({
     [CHANGE_TIME]: (state, action) => {
         return Object.assign({}, state, {
             currentTime: action.currentTime
+        })
+    },
+    [LOAD_MORE]: (state, action) => {
+        return Object.assign({}, state, {
+            canLoadMore: !state.canLoadMore
         })
     }
 }, initialState);
@@ -114,5 +122,13 @@ export function changeTime(tid) {
             type: CHANGE_TIME,
             currentTime: tid
         });
+    }
+}
+
+export function loadMore() {
+    return (dispatch) => {
+        dispatch({
+            type: LOAD_MORE
+        })
     }
 }
