@@ -1,0 +1,1 @@
+export const HOST = 'http://m.piaoniu.com/api/v1/'
