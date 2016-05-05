@@ -1,7 +1,6 @@
-import React,
-{
+import React, {Component} from 'react';
+import {
     Text,
-    Component,
     StyleSheet,
     View,
     Image,

@@ -1,7 +1,6 @@
-import React,
-{
-  Text,
-  Component,
+import React, {Component} from 'react';
+import {
+  Text
 } from 'react-native';
 
 class My extends Component {

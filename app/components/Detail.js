@@ -1,7 +1,6 @@
-import React,
-{
+import React, {Component} from 'react';
+import {
     Text,
-    Component,
     WebView
 } from 'react-native';
 import Home from '../pages/Home';
@@ -13,7 +12,7 @@ class Detail extends Component {
 
     render() {
         return (
-            <WebView source={{uri: this.props.url}}/>
+            <WebView source={{ uri: this.props.url }}/>
         )
     }
 }

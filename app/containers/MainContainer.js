@@ -1,7 +1,4 @@
-import React, {
-    Component
-} from 'react-native';
-
+import React, {Component} from 'react';
 import Main from '../pages/Main';
 import MainIOS from '../pages/Main.ios';
 

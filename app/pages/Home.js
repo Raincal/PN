@@ -1,8 +1,7 @@
-import React,
-{
+import React, {Component} from 'react';
+import {
     Text,
     View,
-    Component,
     ScrollView,
     StyleSheet
 } from 'react-native';

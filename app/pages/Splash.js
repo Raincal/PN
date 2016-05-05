@@ -1,10 +1,10 @@
-import React, {
+import React, {Component} from 'react';
+import {
     View,
     Text,
     Image,
     Platform,
-    Dimensions,
-    Component,
+    Dimensions
 } from 'react-native';
 
 import MainContainer from '../containers/MainContainer';

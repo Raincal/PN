@@ -1,4 +1,5 @@
-import React, {
+import React, {Component} from 'react';
+import {
     Platform,
     BackAndroid,
     Navigator,
@@ -7,7 +8,7 @@ import React, {
 
 import Splash from '../pages/Splash';
 
-class App extends React.Component {
+class App extends Component {
     componentWillMount() {
         if (Platform.OS === 'android') {
             BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);

@@ -1,7 +1,6 @@
-import React,
-{
+import React, {Component} from 'react';
+import {
   Text,
-  Component,
 } from 'react-native';
 
 class Home extends Component {

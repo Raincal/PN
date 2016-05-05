@@ -1,8 +1,7 @@
-import React,
-{
+import React, {Component} from 'react';
+import {
     Text,
-    View,
-    Component
+    View
 } from 'react-native';
 
 import {connect} from 'react-redux';

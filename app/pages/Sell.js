@@ -1,8 +1,7 @@
-import React,
-{
+import React, {Component} from 'react';
+import {
     Text,
     StyleSheet,
-    Component,
     View,
     ListView,
     Image,
