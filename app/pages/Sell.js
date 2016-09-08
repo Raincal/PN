@@ -23,14 +23,15 @@ class Sell extends Component {
         super(props);
         this.state = {
             dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 }),
-            refreshing: false
+            refreshing: true
         }
     }
 
     componentWillReceiveProps(nextProps) {
         const {activitiesList} = nextProps.activities;
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(activitiesList)
+            dataSource: this.state.dataSource.cloneWithRows(activitiesList),
+            refreshing: false
         })
     }
 
@@ -116,6 +117,8 @@ class Sell extends Component {
                 <Nav {...this.props}/>
                 <ListView
                     enableEmptySections={true}
+                    initialListSize={10}
+                    pageSize={10}
                     dataSource={this.state.dataSource}
                     renderRow={(rowData) => this._renderRow(rowData) }
                     onEndReached={this._onEndReached.bind(this) }
