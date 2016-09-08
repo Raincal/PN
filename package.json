@@ -9,20 +9,20 @@
         "postinstall": "npm run clean:babelrc"
     },
     "dependencies": {
-        "react": "^0.14.8",
-        "react-native": "^0.25.1",
-        "react-native-swiper": "^1.4.3",
-        "react-redux": "^4.0.2",
-        "redux": "^3.0.5",
-        "redux-actions": "^0.9.0",
-        "redux-thunk": "^2.0.1"
+        "react": "^15.3.1",
+        "react-native": "^0.32.0",
+        "react-native-swiper": "^1.4.11",
+        "react-redux": "^4.4.5",
+        "redux": "^3.6.0",
+        "redux-actions": "^0.12.0",
+        "redux-thunk": "^2.1.0"
     },
     "devDependencies": {
-        "babel-eslint": "^6.0.4",
-        "eslint": "^2.2.0",
-        "eslint-config-airbnb": "^8.0.0",
-        "eslint-plugin-import": "^1.0.3",
-        "eslint-plugin-react": "^5.0.1",
+        "babel-eslint": "^6.1.2",
+        "eslint": "^3.4.0",
+        "eslint-config-airbnb": "^10.0.1",
+        "eslint-plugin-import": "^1.14.0",
+        "eslint-plugin-react": "^6.2.0",
         "redux-logger": "^2.6.1"
     }
 }

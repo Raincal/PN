@@ -27,9 +27,10 @@ class SellContainer extends Component {
 }
 
 function mapStateToProps(state) {
-    const {activities} = state;
+    const {activities, cities} = state;
     return {
-        activities
+        activities,
+        cities
     }
 }
 

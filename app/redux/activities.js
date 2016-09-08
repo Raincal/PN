@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
-import {request} from '../utils/RequestUtils';
-import {HOST} from '../constants/api';
+import { request } from '../utils/RequestUtils';
+import { HOST } from '../constants/api';
 
 // Action types;
 export const FETCH_ACTIVITIES = 'app/sell/fetch_activities';
@@ -26,43 +26,50 @@ const initialState = {
 // reducer
 const reducer = handleActions({
     [FETCH_ACTIVITIES]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             activitiesList: state.activitiesList.concat(action.payload.data),
             totalPage: action.payload.totalPage
-        })
+        }
     },
     [REFRESH_ACTIVITIES]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             activitiesList: [],
             modalShow: false,
             canLoadMore: false
-        })
+        }
     },
     [MODAL_SHOW]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             modalShow: !state.modalShow,
             selected: action.selected
-        })
+        }
     },
     [CHANGE_CATEGORY]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             currentCategory: action.currentCategory
-        })
+        }
     },
     [CHANGE_SORT]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             currentSort: action.currentSort
-        })
+        }
     },
     [CHANGE_TIME]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             currentTime: action.currentTime
-        })
+        }
     },
     [LOAD_MORE]: (state, action) => {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             canLoadMore: !state.canLoadMore
-        })
+        }
     }
 }, initialState);
 export default reducer;
@@ -73,7 +80,7 @@ export const resetActivities = createAction(REFRESH_ACTIVITIES);
 
 // async action creators: create async function as redux-thunk.
 export function fetchActivities(page = 1, categoryId = 0, sort = 1, time = 'all') {
-    return async (dispatch) => {
+    return async(dispatch) => {
         try {
             let response = await request(`${HOST}activities?pageIndex=${page}&pageSize=10&categoryId=${categoryId}&sort=${sort}&time=${time}`, 'get');
             dispatch(receiveActivities({

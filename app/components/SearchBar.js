@@ -6,24 +6,16 @@ import {
 } from 'react-native';
 import Home from '../pages/Home';
 
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <View style={[styles.container]}>
-                <Text style={styles.city}>上海</Text>
-                <View style={styles.searchWrap}>
-                    <View style={styles.searchContainer}>
-                        <Text style={styles.placeholder}>搜索明星、演出、场馆</Text>
-                    </View>
-                </View>
+const SearchBar = () => (
+    <View style={[styles.container]}>
+        <Text style={styles.city}>上海</Text>
+        <View style={styles.searchWrap}>
+            <View style={styles.searchContainer}>
+                <Text style={styles.placeholder}>搜索明星、演出、场馆</Text>
             </View>
-        )
-    }
-}
+        </View>
+    </View>
+)
 
 const styles = StyleSheet.create({
     container: {
